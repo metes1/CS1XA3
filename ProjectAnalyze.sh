@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Checks if local repo is up to date with the repo
+# Checks if local repo is up to date with the remote repo
 if git remote show origin | grep "out of date"  --silent
 then
    echo "Local repo out of date"
