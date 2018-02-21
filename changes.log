@@ -1,7 +1,33 @@
-diff --git a/Test.txt b/Test.txt
-deleted file mode 100644
-index 2740b93..0000000
---- a/Test.txt
-+++ /dev/null
-@@ -1 +0,0 @@
--Delete later
+diff --git a/ProjectAnalyze.sh b/ProjectAnalyze.sh
+index 44b727a..b36e95d 100644
+--- a/ProjectAnalyze.sh
++++ b/ProjectAnalyze.sh
+@@ -4,11 +4,13 @@
+ if git remote show origin | grep "out of date" --silent
+ then
+    echo "Local repo out of date"
+-   echo "Would you like to update your local repo with the remote repo? (Y/N)"
+-   read ans
+-   if $ans = Y
++   read -p  "Would you like to update your local repo with the remote repo? (Y/n) " ans
++   if [ "$ans" = "Y" ]
+    then
+       git pull
++      echo "Local repo updated"
++   else
++      echo "Local repo not updated"
+    fi
+ else
+    echo "Local repo up to date"
+diff --git a/changes.log b/changes.log
+index 3131d75..e69de29 100644
+--- a/changes.log
++++ b/changes.log
+@@ -1,7 +0,0 @@
+-diff --git a/Test.txt b/Test.txt
+-deleted file mode 100644
+-index 2740b93..0000000
+---- a/Test.txt
+-+++ /dev/null
+-@@ -1 +0,0 @@
+--Delete later
