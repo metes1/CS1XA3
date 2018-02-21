@@ -1,9 +1,15 @@
 #!/bin/bash
 
 # Checks if local repo is up to date with the remote repo
-if git remote show origin | grep "out of date"  --silent
+if git remote show origin | grep "out of date" --silent
 then
    echo "Local repo out of date"
+   echo "Would you like to update your local repo with the remote repo? (Y/N)"
+   read ans
+   if $ans = Y
+   then
+      git pull
+   fi
 else
    echo "Local repo up to date"
 fi
