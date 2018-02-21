@@ -4,11 +4,13 @@
 if git remote show origin | grep "out of date" --silent
 then
    echo "Local repo out of date"
-   echo "Would you like to update your local repo with the remote repo? (Y/N)"
-   read ans
-   if $ans = Y
+   read -p  "Would you like to update your local repo with the remote repo? (Y/n) " ans
+   if [ "$ans" = "Y" ]
    then
       git pull
+      echo "Local repo updated"
+   else
+      echo "Local repo not updated"
    fi
 else
    echo "Local repo up to date"
