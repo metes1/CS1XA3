@@ -1,0 +1,2 @@
+./ProjectAnalyze.sh:grep -r --exclude="todo.log" "#TODO" . > todo.log
+./ProjectAnalyze.sh:#TODO Checks all haskell files for syntax errors and puts the results into a file
