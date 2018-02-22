@@ -17,9 +17,9 @@ else
 fi
 
 # Puts all uncommitted changes in a file
-git diff > Assign1/changes.log
+git diff > changes.log
 
 # Puts each line from every file in project with the tag TODO into a file
-grep -r --exclude="todo.log" "#TODO" Assign1 > Assign1/todo.log
+grep -r --exclude="todo.log" "#TODO" . > todo.log
  
-# Checks all haskell files for syntax errors and puts the results into a file
+#TODO Checks all haskell files for syntax errors and puts the results into a file
