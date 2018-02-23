@@ -5,3 +5,5 @@ Assign1
 2) Second function puts all uncommitted changes into a file changes.log
 
 3) Third function puts each line with the tag TODO, from every file in the current folder(Assign1) into a file todo.log. ProjectAnalyze.sh must be executed while in the Assign1 folder in order for only the Assign1 files to be checked and in order for the log files to be placed inside the Assign1 folder.
+
+4) Fourth function checks all haskell files for syntax errors and puts the results into error.log.

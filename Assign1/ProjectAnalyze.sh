@@ -22,4 +22,10 @@ git diff > changes.log
 # Puts each line from every file in project with the tag TODO into a file
 grep -r --exclude="todo.log" "#TODO" . > todo.log
  
-#TODO Checks all haskell files for syntax errors and puts the results into a file
+# Checks all haskell files for syntax errors and puts the results into a file
+rm error.log
+shopt -s nullglob
+for f in *.hs
+do
+	ghc -fno-code $f &>> error.log
+done
