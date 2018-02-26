@@ -17,15 +17,15 @@ else
 fi
 
 # Puts all uncommitted changes in a file
-git diff > changes.log
+git diff > Assign1/changes.log
 
 # Puts each line from every file in project with the tag TODO into a file
-grep -r --exclude="todo.log" "#TODO" . > todo.log
+grep -r --exclude="todo.log" --exclude="changes.log"  "#TODO" Assign1 > Assign1/todo.log
  
 # Checks all haskell files for syntax errors and puts the results into a file
-rm error.log
-shopt -s nullglob
-for f in *.hs
-do
-	ghc -fno-code $f &>> error.log
-done
+rm Assign1/error.log
+find . -name "*.hs" |
+    while read file
+    do
+	ghc -fno-code "$file" &>> Assign1/error.log
+    done

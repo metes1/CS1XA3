@@ -1,9 +1,9 @@
-[1 of 1] Compiling Main             ( hsErrTest.hs, nothing )
+[1 of 1] Compiling Main             ( Assign1/hsErrTest.hs, nothing )
 
-hsErrTest.hs:3:19:
+Assign1/hsErrTest.hs:3:19:
     Couldn't match type ‘[Char]’ with ‘Integer’
     Expected type: Integer
       Actual type: String
     In the second argument of ‘(-)’, namely ‘b’
     In the expression: a - b
-[1 of 1] Compiling Main             ( hsTest.hs, nothing )
+[1 of 1] Compiling Main             ( Assign1/hsTest.hs, nothing )
