@@ -27,8 +27,17 @@ rm Assign1/error.log
 find . -name "*.hs" |
     while read file
     do
-	ghc -fno-code "$file" &>> Assign1/error.log
+      ghc -fno-code "$file" &> tmpErr.txt
+      if grep -q "The IO action 'main' is not defined" "tmpErr.txt"
+      then
+         sed -i "1i main = undefined" "$file"
+	 ghc -fno-code "$file" &>> Assign1/error.log
+         sed -i "1d" "$file"
+      else
+         ghc -fno-code "$file" &>> Assign1/error.log
+      fi
     done
+rm tmpErr.txt
 
 # Checks if any changes have been made to local repo. If yes, it gives user the option to commit and push those changes to gihub
 if [ -s "Assign1/changes.log" ]
@@ -42,7 +51,7 @@ then
     read -p "Would you like to stage and commit all of these changes? (Y/n) " ans2
     if [ "$ans2" = "Y" ]
     then
-        echo "Please enter your commit message and then press enter to finalize commit: "
+        echo "Please enter your commit message in quotes and then press enter to finalize commit: "
 	read message
 	git add -A
 	git commit -m "$message"
