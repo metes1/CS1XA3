@@ -7,3 +7,5 @@ Assign1
 3) Third function puts each line with the tag TODO, from every file in the current folder(Assign1) into a file todo.log. The todo.log file is placed in the Assign1 folder.
 
 4) Fourth function checks all haskell files for syntax errors and puts the results into error.log. The file is placed in Assign1 folder
+
+5) Added functions alerts user if there are any unstaged changes. Then gives the user the option to view those changes, stage all, commit, and push to github.

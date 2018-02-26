@@ -1,0 +1,57 @@
+diff --git a/Assign1/ProjectAnalyze.sh b/Assign1/ProjectAnalyze.sh
+index 12686d4..ced2154 100644
+--- a/Assign1/ProjectAnalyze.sh
++++ b/Assign1/ProjectAnalyze.sh
+@@ -31,8 +31,9 @@ find . -name "*.hs" |
+     done
+ 
+ # Checks if any changes have been made to local repo. If yes, it gives user the option to commit and push those changes to gihub
+-if cat "Assign1/changes.log" != ""
++if [ -s "Assign1/changes.log" ]
+ then
++else
+     echo "Unstaged changes within your local repo have been detected."
+     read -p "Would you like to view these changes? (Y/n) " ans1
+     if [ "$ans1" = "Y" ]
+diff --git a/Assign1/README.md b/Assign1/README.md
+index 13fe953..2673d74 100644
+--- a/Assign1/README.md
++++ b/Assign1/README.md
+@@ -7,3 +7,5 @@ Assign1
+ 3) Third function puts each line with the tag TODO, from every file in the current folder(Assign1) into a file todo.log. The todo.log file is placed in the Assign1 folder.
+ 
+ 4) Fourth function checks all haskell files for syntax errors and puts the results into error.log. The file is placed in Assign1 folder
++
++5) Added functions alerts user if there are any unstaged changes. Then gives the user the option to view those changes, stage all, commit, and push to github.
+diff --git a/ProjectAnalyze.sh b/ProjectAnalyze.sh
+index 3fe9210..58f5802 100644
+--- a/ProjectAnalyze.sh
++++ b/ProjectAnalyze.sh
+@@ -29,3 +29,27 @@ find . -name "*.hs" |
+     do
+ 	ghc -fno-code "$file" &>> Assign1/error.log
+     done
++
++# Checks if any changes have been made to local repo. If yes, it gives user the option to commit and push those changes to gihub
++if [ -s "Assign1/changes.log" ]
++then
++    echo "Unstaged changes within your local repo have been detected."
++    read -p "Would you like to view these changes? (Y/n) " ans1
++    if [ "$ans1" = "Y" ]
++    then
++        cat "Assign1/changes.log"
++    fi
++    read -p "Would you like to stage and commit all of these changes? (Y/n) " ans2
++    if [ "$ans2" = "Y" ]
++    then
++        echo "Please enter your commit message and then press enter to finalize commit: "
++	read message
++	git add -A
++	git commit -m "$message"
++	read -p "Would you now like to push to github? (Y/n) " ans3
++        if [ "$ans3" = "Y" ]
++	then
++	git push
++	fi
++    fi
++fi

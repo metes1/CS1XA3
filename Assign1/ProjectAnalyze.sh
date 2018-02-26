@@ -31,8 +31,9 @@ find . -name "*.hs" |
     done
 
 # Checks if any changes have been made to local repo. If yes, it gives user the option to commit and push those changes to gihub
-if cat "Assign1/changes.log" != ""
+if [ -s "Assign1/changes.log" ]
 then
+else
     echo "Unstaged changes within your local repo have been detected."
     read -p "Would you like to view these changes? (Y/n) " ans1
     if [ "$ans1" = "Y" ]
