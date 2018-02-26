@@ -42,7 +42,7 @@ then
     read -p "Would you like to stage and commit all of these changes? (Y/n) " ans2
     if [ "$ans2" = "Y" ]
     then
-        echo "Please enter your commit message and then press enter to finalize commit: "
+        echo "Please enter your commit message in quotes and then press enter to finalize commit: "
 	read message
 	git add -A
 	git commit -m "$message"
