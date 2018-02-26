@@ -1,65 +1,26 @@
-diff --git a/Assign1/changes.log b/Assign1/changes.log
-index 1721a21..e69de29 100644
---- a/Assign1/changes.log
-+++ b/Assign1/changes.log
-@@ -1,60 +0,0 @@
--diff --git a/Assign1/ProjectAnalyze.sh b/Assign1/ProjectAnalyze.sh
--index af6b74b..503b974 100644
----- a/Assign1/ProjectAnalyze.sh
--+++ b/Assign1/ProjectAnalyze.sh
--@@ -24,8 +24,8 @@ grep -r --exclude="todo.log" --exclude="changes.log"  "#TODO" Assign1 > Assign1/
--  
-- # Checks all haskell files for syntax errors and puts the results into a file
-- rm Assign1/error.log
---shopt -s nullglob
---for f in ~/*.hs 
---do
---	ghc -fno-code $f &>> Assign1/error.log
---done
--+find . -name "*.hs" |
--+    while read file
--+    do
--+	ghc -fno-code "$file" &>> Assign1/error.log
--+    done
--diff --git a/Assign1/error.log b/Assign1/error.log
--index 91f0fc6..df8d632 100644
----- a/Assign1/error.log
--+++ b/Assign1/error.log
--@@ -1,4 +1,9 @@
---[1 of 1] Compiling Main             ( /u50/metes1/Bash02.hs, nothing )
--+[1 of 1] Compiling Main             ( Assign1/hsErrTest.hs, nothing )
-- 
---/u50/metes1/Bash02.hs:1:1:
---    The IO action ‘main’ is not defined in module ‘Main’
--+Assign1/hsErrTest.hs:3:19:
--+    Couldn't match type ‘[Char]’ with ‘Integer’
--+    Expected type: Integer
--+      Actual type: String
--+    In the second argument of ‘(-)’, namely ‘b’
--+    In the expression: a - b
--+[1 of 1] Compiling Main             ( Assign1/hsTest.hs, nothing )
--diff --git a/Assign1/todo.log b/Assign1/todo.log
--index 59e3cd3..70be484 100644
----- a/Assign1/todo.log
--+++ b/Assign1/todo.log
--@@ -1 +1 @@
---Assign1/ProjectAnalyze.sh:grep -r --exclude="todo.log" "#TODO" Assign1 > Assign1/todo.log
--+Assign1/ProjectAnalyze.sh:grep -r --exclude="todo.log" --exclude="changes.log"  "#TODO" Assign1 > Assign1/todo.log
--diff --git a/ProjectAnalyze.sh b/ProjectAnalyze.sh
--index af6b74b..503b974 100644
----- a/ProjectAnalyze.sh
--+++ b/ProjectAnalyze.sh
--@@ -24,8 +24,8 @@ grep -r --exclude="todo.log" --exclude="changes.log"  "#TODO" Assign1 > Assign1/
--  
-- # Checks all haskell files for syntax errors and puts the results into a file
-- rm Assign1/error.log
---shopt -s nullglob
---for f in ~/*.hs 
---do
---	ghc -fno-code $f &>> Assign1/error.log
---done
--+find . -name "*.hs" |
--+    while read file
--+    do
--+	ghc -fno-code "$file" &>> Assign1/error.log
--+    done
+diff --git a/Assign1/ProjectAnalyze.sh b/Assign1/ProjectAnalyze.sh
+index 503b974..3fe9210 100644
+--- a/Assign1/ProjectAnalyze.sh
++++ b/Assign1/ProjectAnalyze.sh
+@@ -17,7 +17,7 @@ else
+ fi
+ 
+ # Puts all uncommitted changes in a file
+-git diff > Assign1/changes.log
++git diff -- . ":(exclude)Assign1/changes.log" > Assign1/changes.log
+ 
+ # Puts each line from every file in project with the tag TODO into a file
+ grep -r --exclude="todo.log" --exclude="changes.log"  "#TODO" Assign1 > Assign1/todo.log
+diff --git a/ProjectAnalyze.sh b/ProjectAnalyze.sh
+index 503b974..3fe9210 100644
+--- a/ProjectAnalyze.sh
++++ b/ProjectAnalyze.sh
+@@ -17,7 +17,7 @@ else
+ fi
+ 
+ # Puts all uncommitted changes in a file
+-git diff > Assign1/changes.log
++git diff -- . ":(exclude)Assign1/changes.log" > Assign1/changes.log
+ 
+ # Puts each line from every file in project with the tag TODO into a file
+ grep -r --exclude="todo.log" --exclude="changes.log"  "#TODO" Assign1 > Assign1/todo.log
