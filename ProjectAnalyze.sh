@@ -28,14 +28,19 @@ find . -name "*.hs" |
     while read file
     do
       ghc -fno-code "$file" &> tmpErr.txt
-      if grep -q "The IO action 'main' is not defined" "tmpErr.txt"
+      if grep -q "The IO action" "tmpErr.txt"
       then
-         sed -i "1i main = undefined" "$file"
+         sed -i "1i main = undefined --tmp" "$file"
 	 ghc -fno-code "$file" &>> Assign1/error.log
-         sed -i "1d" "$file"
       else
          ghc -fno-code "$file" &>> Assign1/error.log
       fi
+     # sed -i "/main = undefined --tmp/d" $file
+    done
+find . -name "*.hs" |
+    while read fileFix
+    do
+      sed -i "/main = undefined --tmp/d" $fileFix
     done
 rm tmpErr.txt
 
