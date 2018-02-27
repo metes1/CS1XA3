@@ -8,4 +8,4 @@ Assign1
 
 4) Fourth function checks all haskell files for syntax errors and puts the results into error.log. The function doesn't consider 'main' not being defined as an error. In the case that this error appears, "main = not defined" will temporarily be written in to the file in order to bypass the error. The file will then be changed back to its original state.
 
-5) Extra added function alerts user if there are any unstaged changes. Then gives the user the option to view those changes and stage all, commit, and push to github.
+5) Extra added function alerts user if there are any unstaged changes. Then gives the user the option to view those changes in the changes.log file, stage all, commit, and push to github.
