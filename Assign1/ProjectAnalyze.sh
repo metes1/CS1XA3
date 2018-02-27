@@ -17,13 +17,13 @@ else
 fi
 
 # Puts all uncommitted changes in a file
-git diff -- . ":(exclude)Assign1/changes.log" > Assign1/changes.log
+git diff -- . ":(exclude)changes.log" > changes.log
 
 # Puts each line from every file in project with the tag TODO into a file
-grep -r --exclude="todo.log" --exclude="changes.log"  "#TODO" Assign1 > Assign1/todo.log
+grep -r --exclude="*.log" --exclude="ProjectAnalyze.sh"  "#TODO" . > todo.log
  
 # Checks all haskell files for syntax errors and puts the results into a file
-rm Assign1/error.log
+rm error.log
 find . -name "*.hs" |
     while read file
     do
@@ -31,12 +31,12 @@ find . -name "*.hs" |
       if grep -q "The IO action" "tmpErr.txt"
       then
          sed -i "1i main = undefined --tmp" "$file"
-	 ghc -fno-code "$file" &>> Assign1/error.log
+	 ghc -fno-code "$file" &>> error.log
       else
-         ghc -fno-code "$file" &>> Assign1/error.log
+         ghc -fno-code "$file" &>> error.log
       fi
-     # sed -i "/main = undefined --tmp/d" $file
     done
+
 find . -name "*.hs" |
     while read fileFix
     do
@@ -45,13 +45,13 @@ find . -name "*.hs" |
 rm tmpErr.txt
 
 # Checks if any changes have been made to local repo. If yes, it gives user the option to commit and push those changes to gihub
-if [ -s "Assign1/changes.log" ]
+if [ -s "changes.log" ]
 then
     echo "Unstaged changes within your local repo have been detected."
     read -p "Would you like to view these changes? (Y/n) " ans1
     if [ "$ans1" = "Y" ]
     then
-        cat "Assign1/changes.log"
+        cat "changes.log"
     fi
     read -p "Would you like to stage and commit all of these changes? (Y/n) " ans2
     if [ "$ans2" = "Y" ]
