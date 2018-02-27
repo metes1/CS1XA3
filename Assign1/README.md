@@ -4,8 +4,8 @@ Assign1
 
 2) Second function puts all uncommitted changes into a file changes.log. I excluded any changes that occur in the changes.log file from being written into changes.log. I found out how to to do this here: https://stackoverflow.com/questions/10415100/want-to-exclude-file-from-git-diff.
 
-3) Third function puts each line with the tag TODO, from every file in the current folder(Assign1) into a file todo.log. The todo.log file is placed in the Assign1 folder.
+3) Third function puts each line with the tag TODO, from every file in into a file todo.log. The todo.log exludes any log files as well as ProjectAnalyze.sh.
 
-4) Fourth function checks all haskell files for syntax errors and puts the results into error.log. The file is placed in Assign1 folder
+4) Fourth function checks all haskell files for syntax errors and puts the results into error.log. The function doesn't consider 'main' not being defined as an error. In the case that this error appears, "main = not defined" will temporarily be written in to the file in order to bypass the error. The file will then be changed back to its original state.
 
-5) Added functions alerts user if there are any unstaged changes. Then gives the user the option to view those changes, stage all, commit, and push to github.
+5) Extra added function alerts user if there are any unstaged changes. Then gives the user the option to view those changes and stage all, commit, and push to github.
