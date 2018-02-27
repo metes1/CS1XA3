@@ -1,3 +1,10 @@
+[1 of 1] Compiling Main             ( hs1.hs, nothing )
+
+hs1.hs:3:15:
+    Couldn't match expected type ‘Integer’ with actual type ‘[Char]’
+    In the second argument of ‘(+)’, namely ‘"no"’
+    In the expression: 8 + "no"
+    In an equation for ‘add’: add a b = 8 + "no"
 [1 of 1] Compiling Main             ( Assign1/hsErrTest.hs, nothing )
 
 Assign1/hsErrTest.hs:3:19:
