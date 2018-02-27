@@ -23,21 +23,25 @@ git diff -- . ":(exclude)changes.log" > changes.log
 grep -r --exclude="*.log" --exclude="ProjectAnalyze.sh"  "#TODO" . > todo.log
  
 # Checks all haskell files for syntax errors and puts the results into a file
-rm error.log
+if [ -f "error.log" ] # Removes old log if it exits
+then
+   rm error.log
+fi
+
 find . -name "*.hs" |
     while read file
     do
       ghc -fno-code "$file" &> tmpErr.txt
       if grep -q "The IO action" "tmpErr.txt"
       then
-         sed -i "1i main = undefined --tmp" "$file"
+         sed -i "1i main = undefined --tmp" "$file" #Bypasses main not defined error
 	 ghc -fno-code "$file" &>> error.log
       else
          ghc -fno-code "$file" &>> error.log
       fi
     done
 
-find . -name "*.hs" |
+find . -name "*.hs" | #Changes file back to original state
     while read fileFix
     do
       sed -i "/main = undefined --tmp/d" $fileFix
