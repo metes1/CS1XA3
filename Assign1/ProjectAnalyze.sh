@@ -48,7 +48,7 @@ find . -name "*.hs" | #Changes file back to original state
     done
 rm tmpErr.txt
 
-# Checks if any changes have been made to local repo. If yes, it gives user the option to commit and push those changes to gihub
+# Checks if any changes have been made to local repo by looking in changes.log. If yes, it gives user the option to commit and push those changes to github
 if [ -s "changes.log" ]
 then
     echo "Unstaged changes within your local repo have been detected."
