@@ -47,12 +47,14 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
+/* Clear floats after the columns */
 .row:after {
     content: "";
     display: table;
     clear: both;
 }
 
+/* Create two equal columns that floats next to each other */
 .column {
     float: left;
     width: 50%;
