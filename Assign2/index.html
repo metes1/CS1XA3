@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<title>Seda Mete</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- The layout and styling of the webpage-->
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica;
+    padding: 50px;
+    background: #E5E5E5;
+}
+
+.rightColumn {   
+    float: right;
+    width: 65%;
+}
+
+.leftColumn {
+    float: left;
+    width: 30%;
+}
+
+.mainContent {
+    background-color: white;
+    padding: 40px;
+    margin: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.sideContent {
+    background-color: white;
+    padding: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.footer {
+    padding: 3px;
+    text-align: center;
+    background: #3BAEAE;
+    margin-top: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+}
+</style>
+
+<body>
+  <div class="row">
+
+    <!-- Left column -->
+    <div class="leftColumn">
+      <div class="sideContent">
+        <img src="profile.png" style="width:100%;height:250px" alt="Avatar">
+        <hr> 
+        <h1><b>Seda Mete</b></h1>       
+        <p>Undergraduate Student</p>
+        <p>Hamilton, ON</p>
+        <p>Email: metes1@mcmaster.ca</p>
+        <hr>
+        <a href="https://www.linkedin.com/in/seda-mete-5a006a144"><img src="linkedinImg.png" alt="LinkedIn" style="width:40px;height:40px"></a>
+        <a href="https://github.com/metes1"><img src="githubImg.png" alt="GitHub" style="width:40px;height:40px"></a>
+      </div>
+    </div>
+    
+    <!-- Right column-->
+    <div class="rightColumn">
+      <div class="mainContent">
+        <p>I am currently an undergraduate student studying computer science at McMaster University.</p>
+        <h1 style="color:#3BAEAE">Education</h1>
+        <h3><b>2017: High School Diploma</b></h3>
+          <p><i>Sherwood Secondary School - Hamilton, ON, Canada</i></p>
+          <p>Honour Roll for all 4 years. Member of Math Society.</p>
+        <h3><b>2021: Bachelor of Applied Science - Computer Science</b></h3>
+          <p><i>McMaster University - Hamilton, ON, Canada</i></p>
+          <p>Currently in first year of the Computer Science program at McMaster University, pursuing a Bachelor of Applied Science. Excpected to graduate in 2021.</p>
+        <hr>
+        <h1 style="color:#3BAEAE">Volunteer Experience</h1>
+        <h3><b>2014 - 2016: Summer Reading Buddy</b></h3>
+          <p><i>Hamilton Public Library - Sherwood Branch</i></p>
+          <p>Spent the summer helping children with their reading as well as organizing a variety of activities for them.</p>
+        <hr>
+        <h1 style="color:#3BAEAE">Skills</h1>
+        <div class="row">
+          <div class="column">
+            <h3>Programming</h3>
+            <ul>
+              <li>Proficient in Python</li>
+              <li>Proficient in Visual Basic</li>
+              <li>Familiar with Haskell</li>
+              <li>Familiar with Elm</li>
+              <li>Familiar with HTML and CSS</li>
+              <li>Familiar with Bash</li>
+            </ul>      
+          </div>
+          <div class="column">
+            <h3>Software</h3>
+            <ul>
+              <li>Proficient in Microsoft Office</li>
+              <li>Familiar with Adobe Photoshop</li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+        <h1 style="color:#3BAEAE">Projects</h1>
+        <h3><b><a href="http://ugweb.cas.mcmaster.ca/~metes1/jump.html">Elm App</a></b></h3>
+          <p>Using Elm, I created a simple game in which the player needs to jump over a moving obstacle.</p>
+        <hr>
+        <p>References available upon request.</p>
+      </div>
+    </div>  
+  </div>
+
+<!-- Footer -->
+<footer class='footer'>
+  <p>Created by Seda Mete @ 2018</p>
+</footer>
+
+</body>
+</html>
