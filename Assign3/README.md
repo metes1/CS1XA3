@@ -7,3 +7,5 @@ This project is a math library created using Haskell. Haddock documentation can 
 2. Can perform partial differentation (symbolic)
 3. Can perfom some simplification of expressions
 4. Can parse certain strings into an expression datatype. Not fully functional: Can only parse Var, Const, Add, Mult, Subt, Div. Can't parse expressions with parentheses either.
+
+References: Used module templates, as well as used code from Lecture/Lab slides and Haskell Lab solution files. http://www.cas.mcmaster.ca/~dalvescb/#outline-container-org2a5d6f3 
