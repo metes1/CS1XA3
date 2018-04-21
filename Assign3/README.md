@@ -2,7 +2,7 @@
 
 This project is a math library created using Haskell. Haddock documentation can be found here: https://metes1.github.io/CS1XA3/
 
-##Functionality
+## Functionality
 1. Can partially or fully evaluate an expression
 2. Can perform partial differentation (symbolic)
 3. Can perfom some simplification of expressions
